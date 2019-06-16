@@ -8,9 +8,9 @@
 
 namespace ZendEnv\Controller;
 
-use ZendEnv\Tool\Environment;
 use Zend\Mvc\Controller\AbstractActionController;
 use ZendBaseModel\PortAdapter\Event\EventManager\StaticEventManager;
+use ZendEnv\Tool\Environment;
 use ZendMover\Copier;
 
 /**
@@ -31,7 +31,7 @@ class EnvController extends AbstractActionController
 
         try {
             $environment = new Environment($env, new Copier());
-            $result      = $environment->installEnv($env, $dbu, $dbp, $dbn);
+            $result = $environment->installEnv($env, $dbu, $dbp, $dbn);
 
             return $result ? "Success\n" : '';
         } catch (\Exception $e) {

@@ -1,33 +1,33 @@
 {
-  "name": "seyfer/zend-env",
-  "description": "Small Env module which was used to init env config",
-  "homepage": "http://seyferseed.ru",
-  "license": "GPL v2",
-  "authors": [
-    {
-      "name": "seyfer",
-      "email": "seyferseed@mail.ru",
-      "homepage": "http://seyferseed.ru",
-      "role": "Developer"
+    "name": "seyfer/zend-env",
+    "description": "Small Env module which was used to init env config",
+    "homepage": "http://seyferseed.ru",
+    "license": "GPL v2",
+    "authors": [
+        {
+            "name": "seyfer",
+            "email": "seyferseed@mail.ru",
+            "homepage": "http://seyferseed.ru",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.5",
+        "zendframework/zendframework": "~2.5.3",
+        "symfony/console": "~2.8.11",
+        "seyfer/zend-base-model": "dev-master",
+        "seyfer/zend-mover": "dev-master",
+        "seyfer/zend-psr-logger": "dev-master"
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://packages.zendframework.com/"
+        }
+    ],
+    "autoload": {
+        "psr-0": {
+            "ZendEnv\\": "src/"
+        }
     }
-  ],
-  "require": {
-    "php": ">=5.5",
-    "zendframework/zendframework": "~2.5",
-    "symfony/console": "2.*",
-    "seyfer/zend-base-model": "dev-master",
-    "seyfer/zend-mover": "dev-master",
-    "seyfer/zend-psr-logger": "dev-master"
-  },
-  "repositories": [
-    {
-      "type": "composer",
-      "url": "https://packages.zendframework.com/"
-    }
-  ],
-  "autoload": {
-    "psr-0": {
-      "ZendEnv\\": "src/"
-    }
-  }
 }

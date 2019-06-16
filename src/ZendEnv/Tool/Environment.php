@@ -18,16 +18,16 @@ use ZendMover\MoverInterface;
  */
 class Environment
 {
-    const ENV_STABLE  = 'stable';
+    const ENV_STABLE = 'stable';
     const ENV_STAGING = 'staging';
-    const ENV_DEV     = 'dev';
-    const ENV_LOCAL   = 'loc';
+    const ENV_DEV = 'dev';
+    const ENV_LOCAL = 'loc';
 
     /**
      * @var array
      */
     private $availableEnvs = [
-        self::ENV_STABLE, self::ENV_STAGING, self::ENV_DEV, self::ENV_LOCAL
+        self::ENV_STABLE, self::ENV_STAGING, self::ENV_DEV, self::ENV_LOCAL,
     ];
 
     /**
@@ -77,19 +77,19 @@ class Environment
         if (!file_exists($configFile)) {
             throw new \RuntimeException('Config file ' . $configFile . ' not exist');
         }
-        $localConfigFile     = 'env.local.php';
+        $localConfigFile = 'env.local.php';
         $localConfigFilePath = $this->configPath . $localConfigFile;
 
         $moveCommand = new MoveCommand($this->copier);
         $moveCommand->setFromDirectory($this->configPath)
-                    ->setToDirectory($this->configPath)
-                    ->addFileToMove(new \SplFileInfo($configFile))
-                    ->setDestinationFileName($localConfigFile);
+            ->setToDirectory($this->configPath)
+            ->addFileToMove(new \SplFileInfo($configFile))
+            ->setDestinationFileName($localConfigFile);
 
         $moveCommand->execute();
 
         if ($dbu && $dbp && $dbn) {
-            $envConfigFileContent  = file_get_contents($localConfigFilePath);
+            $envConfigFileContent = file_get_contents($localConfigFilePath);
             $envConfigFileContentR = preg_replace(
                 ['/{dbu}/', '/{dbp}/', '/{dbn}/'],
                 [$dbu, $dbp, $dbn],
@@ -102,7 +102,7 @@ class Environment
         }
 
         if ($dbu && $dbp) {
-            $envConfigFileContent  = file_get_contents($localConfigFilePath);
+            $envConfigFileContent = file_get_contents($localConfigFilePath);
             $envConfigFileContentR = preg_replace(
                 ['/{dbu}/', '/{dbp}/'],
                 [$dbu, $dbp],
@@ -115,7 +115,7 @@ class Environment
         }
 
         if ($dbp) {
-            $envConfigFileContent  = file_get_contents($localConfigFilePath);
+            $envConfigFileContent = file_get_contents($localConfigFilePath);
             $envConfigFileContentR = preg_replace(
                 '/{dbp}/',
                 $dbp,

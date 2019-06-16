@@ -26,12 +26,12 @@ class EnvCommand extends Command
     protected function configure()
     {
         $this->setName('env:install')
-             ->setHelp('Install project environment')
-             ->setDescription('Install project environment')
-             ->addArgument('env', InputArgument::REQUIRED, 'The name of env [stable, staging. dev]')
-             ->addOption('dbuser', 'u', InputOption::VALUE_OPTIONAL, 'DB username')
-             ->addOption('dbpswd', 'p', InputOption::VALUE_OPTIONAL, 'DB password')
-             ->addOption('dbname', 'd', InputOption::VALUE_OPTIONAL, 'DB name');
+            ->setHelp('Install project environment')
+            ->setDescription('Install project environment')
+            ->addArgument('env', InputArgument::REQUIRED, 'The name of env [stable, staging. dev]')
+            ->addOption('dbuser', 'u', InputOption::VALUE_OPTIONAL, 'DB username')
+            ->addOption('dbpswd', 'p', InputOption::VALUE_OPTIONAL, 'DB password')
+            ->addOption('dbname', 'd', InputOption::VALUE_OPTIONAL, 'DB name');
     }
 
     /**
@@ -41,8 +41,6 @@ class EnvCommand extends Command
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        //        Debug::vars($input->getArguments(), $input->getOptions());
-
         $env = $input->getArgument('env');
         $dbu = $input->getOption('dbuser');
         $dbp = $input->getOption('dbpswd');
@@ -50,7 +48,7 @@ class EnvCommand extends Command
 
         try {
             $environment = new Environment($env, new Copier());
-            $result      = $environment->installEnv($env, $dbu, $dbp, $dbn);
+            $result = $environment->installEnv($env, $dbu, $dbp, $dbn);
 
             return $result ? "Success\n" : '';
         } catch (\Exception $e) {

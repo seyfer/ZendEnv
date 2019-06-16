@@ -8,10 +8,10 @@
 
 namespace ZendEnv\Controller;
 
-use ZendEnv\Tool\Environment;
 use Zend\Mvc\Controller\AbstractController;
 use Zend\Mvc\MvcEvent;
 use ZendBaseModel\PortAdapter\Event\EventManager\StaticEventManager;
+use ZendEnv\Tool\Environment;
 use ZendMover\Copier;
 
 /**
@@ -24,7 +24,7 @@ class EnvRawController extends AbstractController
     /**
      * Execute the request
      *
-     * @param  MvcEvent $e
+     * @param MvcEvent $e
      * @return mixed
      */
     public function onDispatch(MvcEvent $e)
@@ -36,7 +36,7 @@ class EnvRawController extends AbstractController
 
         try {
             $environment = new Environment($env, new Copier());
-            $result      = $environment->installEnv($env, $dbu, $dbp, $dbn);
+            $result = $environment->installEnv($env, $dbu, $dbp, $dbn);
 
             return $result ? "Success\n" : '';
         } catch (\Exception $e) {

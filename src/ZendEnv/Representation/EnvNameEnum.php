@@ -15,8 +15,8 @@ use ZendBaseModel\Domain\Enum\BaseEnum;
  */
 class EnvNameEnum extends BaseEnum
 {
-    const STABLE  = 'stable';
+    const STABLE = 'stable';
     const STAGING = 'staging';
-    const DEV     = 'dev';
-    const LOCAL   = 'local';
+    const DEV = 'dev';
+    const LOCAL = 'local';
 }
